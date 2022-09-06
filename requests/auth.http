@@ -1,0 +1,12 @@
+@api = http://localhost:3000/api/auth
+
+###
+POST {{api}}
+Content-Type: application/json
+
+{
+    "username": "ChichaDios",
+    "email": "claudio.guevara.dev@gmail.com",
+    "password": "claudio123",
+    "confirmPassword": "claudio123"
+}
