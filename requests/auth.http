@@ -1,7 +1,7 @@
 @api = http://localhost:3000/api/auth
 
 ###
-POST {{api}}
+POST {{api}}/register
 Content-Type: application/json
 
 {
@@ -9,4 +9,12 @@ Content-Type: application/json
     "email": "claudio.guevara.dev@gmail.com",
     "password": "claudio123",
     "confirmPassword": "claudio123"
+}
+###
+POST {{api}}/login
+Content-Type: application/json
+
+{
+    "email": "claudio.guevara.dev@gmail.com",
+    "password": "claudio124"
 }
