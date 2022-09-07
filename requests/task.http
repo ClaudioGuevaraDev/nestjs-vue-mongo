@@ -1,0 +1,22 @@
+@api = http://localhost:3000/api/tasks
+
+###
+GET {{api}}
+###
+POST {{api}}
+Content-Type: application/json
+
+{
+    "title": "Task two",
+    "description": "Description one"
+}
+###
+DELETE {{api}}/6318a2189e3eae59f3ec605b
+###
+PUT {{api}}/6318a25c58d5259a30924722
+Content-Type: application/json
+
+{
+    "title": "Tarea 2",
+    "description": "descripción 2"
+}
