@@ -1,4 +1,13 @@
-import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  Post,
+  Req,
+  Res,
+} from '@nestjs/common';
+import { Response, Request } from 'express';
 import {
   UserLoginDto,
   UserLoginResponse,
@@ -19,7 +28,22 @@ export class AuthController {
 
   @Post('login')
   @HttpCode(200)
-  userLogin(@Body() user: UserLoginDto): Promise<UserLoginResponse> {
-    return this.authService.userLogin(user);
+  userLogin(
+    @Body() user: UserLoginDto,
+    @Res({ passthrough: true }) response: Response,
+  ): Promise<UserLoginResponse> {
+    return this.authService.userLogin(user, response);
+  }
+
+  @Get('check-user')
+  @HttpCode(200)
+  checkUser(@Req() request: Request): Promise<UserLoginResponse> {
+    return this.authService.checkUser(request);
+  }
+
+  @Get('logout')
+  @HttpCode(200)
+  logout(@Res({ passthrough: true }) response: Response) {
+    return this.authService.logout(response);
   }
 }
